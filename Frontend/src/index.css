@@ -1,0 +1,23 @@
+html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: url("./Assets/Images/background.jpg");
+    background-size: cover;
+    text-align: center;
+    color: darkcyan;
+}
+
+a {
+    color: lightcyan;
+}
+
+@font-face {
+    font-family: "FlyingPeace";
+    src: local("FlyingPeace"),
+     url("./Assets/Fonts/FlyingPeace/FlyingPeacePersonalUseRegular-vmeK4.ttf") format("truetype");
+    }
+
+.font-face-gm {
+    font-family: "FlyingPeace";
+}

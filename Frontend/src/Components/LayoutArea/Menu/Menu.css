@@ -1,0 +1,17 @@
+.Menu {
+    display: flex;
+    flex-direction: column;
+    font-size: large;
+}
+
+
+.Menu > a {
+    margin-top: 20px;
+}
+
+/* design the links, "active" is a defined word. no need to put this class in css */
+.Menu > .active {
+    color: darkcyan;
+    font-weight: bold;
+    text-decoration: none;
+}

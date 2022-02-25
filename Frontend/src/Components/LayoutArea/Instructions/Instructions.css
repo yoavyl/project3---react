@@ -1,0 +1,15 @@
+.Instructions {
+    padding-top: 120px;
+    text-align: center;
+    font-weight: bold;
+    font-size: x-large;
+    margin: auto;
+    vertical-align: middle;
+}
+
+.Instructions .Numbering {
+    margin: 10px;
+    padding: 0 10px;
+    height: 100px;
+    vertical-align: middle;
+}
