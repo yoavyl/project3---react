@@ -41,9 +41,6 @@ function UpdateVacation(): JSX.Element {
 
     const navigate = useNavigate();
 
-    // assaf says we don't need it?
-    // const minFromDate = new Date().toISOString().split("T")[0]; // today
-
     async function submit(vacation: VacationModel) {
         try {
             vacation.id = +params.id;
@@ -75,13 +72,6 @@ function UpdateVacation(): JSX.Element {
         if (toDate < minToDate) return false;
         if (toDate >= minToDate) return true;
     }
-
-    // custom validation function: validates if fromDate is after/equal to minFromDate 
-    // no need per assaf?
-    // function validateFromDate(toDate: string): boolean {
-    //     if (toDate < minFromDate) return false;
-    //     if (toDate >= minFromDate) return true;
-    // }
     
     return (
         <div className="UpdateVacation">

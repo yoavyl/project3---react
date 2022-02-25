@@ -32,7 +32,6 @@ class AuthService {
         authStore.dispatch(logoutAction());
     }
 
-    // assaf solution for authorization
     public isLoggedIn(): boolean {
         return authStore.getState().token !== null;
     }
