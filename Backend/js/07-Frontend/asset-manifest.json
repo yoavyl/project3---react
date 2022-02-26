@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.be9aa7e9.css",
+    "main.js": "/static/js/main.5836796f.js",
+    "static/js/787.cda612ba.chunk.js": "/static/js/787.cda612ba.chunk.js",
+    "static/media/FlyingPeacePersonalUseRegular-vmeK4.ttf": "/static/media/FlyingPeacePersonalUseRegular-vmeK4.2a69abeb57de472710df.ttf",
+    "static/media/background.jpg": "/static/media/background.23000f5d7e80092f31ed.jpg",
+    "static/media/404.png": "/static/media/404.c0bc7d0b97fa8387bee7.png",
+    "index.html": "/index.html",
+    "main.be9aa7e9.css.map": "/static/css/main.be9aa7e9.css.map",
+    "main.5836796f.js.map": "/static/js/main.5836796f.js.map",
+    "787.cda612ba.chunk.js.map": "/static/js/787.cda612ba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.be9aa7e9.css",
+    "static/js/main.5836796f.js"
+  ]
+}
