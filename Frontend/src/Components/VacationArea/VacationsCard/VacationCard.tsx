@@ -29,7 +29,7 @@ function VacationCard(props: VacationCardProps): JSX.Element {
         const answer: boolean = window.confirm("Are you sure you want to delete this vacation?");
         if (!answer) return;
         try {
-            await myVacationService.deleteVacation(props.vacation.id);
+            await myVacationService.deleteVacation(props.vacation?.id);
             notifyService.success(`Vacation deleted!`);
             navigate("/home");
         }
@@ -77,7 +77,7 @@ function VacationCard(props: VacationCardProps): JSX.Element {
 
 
     return (
-        <div key={props.vacation.id} className="VacationCard">
+        <div key={props.vacation?.id} className="VacationCard">
              <p>
                 {!props.isAdmin && <>
                     {isUserFollowing && <button onClick={removeFollower} ><FcLike /></button>}

@@ -5,7 +5,8 @@ import safeDelete from "../01-Utils/safe-delete";
 import ClientError from "../03-Models/client-error";
 import VacationModel from "../03-Models/vacation-model";
 import dal from "../04-DAL/dal";
-import socketLogic from "./socket-logic"
+import socketLogic from "./socket-logic";
+import followersLogic from "../05-BLL/followers-logic";
 
 async function getAllVacations(): Promise<VacationModel[]> {
     const sql = `SELECT id, details, DATE_FORMAT(fromDate, "%Y-%m-%d") AS fromDate, 
@@ -106,8 +107,11 @@ async function updateVacation(vacation: VacationModel): Promise<VacationModel> {
 }
 
 async function deleteVacation(id: number): Promise<void> {
-    const dbVacation = await getOneVacation(id);
     
+    // before delete, remove all followers of vacation from followers table (MUST, there are constrains in DB)
+    await followersLogic.removeAllFollowersPerVacation(id);
+    
+    const dbVacation = await getOneVacation(id); // i need that for imageName
     const sql = "DELETE FROM Vacations WHERE id = " + id;
     const results: OkPacket = await dal.execute(sql); 
     

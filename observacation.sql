@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 24, 2022 at 10:16 AM
+-- Generation Time: Feb 26, 2022 at 08:00 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -98,7 +98,7 @@ CREATE TABLE `vacations` (
 --
 
 INSERT INTO `vacations` (`id`, `details`, `destination`, `imageName`, `fromDate`, `toDate`, `price`, `followers`) VALUES
-(1, 'Weekend in London', 'London', 'a95de7b9-16ff-4157-9a60-852ef149ac9b.jpg', '2022-02-22', '2022-02-28', '230.00', 3),
+(1, 'Weekend in London 2', 'London', 'a95de7b9-16ff-4157-9a60-852ef149ac9b.jpg', '2022-02-22', '2022-02-28', '230.00', 3),
 (2, 'Weekend in Amsterdam', 'Amsterdam', '6afd0cc5-66fe-478f-9f1f-7a283ca68927.jpg', '2022-02-17', '2022-02-19', '310.00', 1),
 (3, 'Turkish delight', 'Instanbul', 'fccadb35-0cb0-4477-972a-d33a71264588.jpg', '2022-02-20', '2022-02-24', '360.00', 2),
 (5, 'Luxury husha in Sharm El Sheikh', 'Sinai', 'aa190295-a55a-4c55-9442-1900ed022af9.jpg', '2022-02-24', '2022-02-28', '100.00', 2),
@@ -143,7 +143,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `vacations`
 --
 ALTER TABLE `vacations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- Constraints for dumped tables
@@ -153,8 +153,8 @@ ALTER TABLE `vacations`
 -- Constraints for table `followers`
 --
 ALTER TABLE `followers`
-  ADD CONSTRAINT `followers_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `followers_ibfk_2` FOREIGN KEY (`vacationId`) REFERENCES `vacations` (`id`);
+  ADD CONSTRAINT `followers_ibfk_1` FOREIGN KEY (`vacationId`) REFERENCES `vacations` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `followers_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

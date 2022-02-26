@@ -19,9 +19,9 @@ async function addFollower(follower: FollowerModel): Promise<FollowerModel> {
     if (followers.length > 0) throw new ClientError(406, "user already follows this vacation");
 
     // add follower to followers table
-    const sqlFollowerTable = `INSERT INTO followers 
+    const sqlFollowersTable = `INSERT INTO followers 
                             VALUES (${follower.userId}, ${follower.vacationId})`;
-    const result: OkPacket = await dal.execute(sqlFollowerTable);
+    const result: OkPacket = await dal.execute(sqlFollowersTable);
 
     // update +1 to followers in vacations table
     const sqlVacationsTable = `UPDATE Vacations 
@@ -60,6 +60,12 @@ async function removeFollower(follower: FollowerModel): Promise<void> {
     const info: OkPacket = await dal.execute(sqlVacationsTable);      
 }
 
+// before delete, remove all followers of vacation from followers table (MUST, there are constrains in DB)
+async function removeAllFollowersPerVacation(vacationId: number): Promise<void> {
+    const sql = "DELETE FROM Followers WHERE vacationId = " + vacationId;
+    const results: OkPacket = await dal.execute(sql); 
+}
+
 async function getStats(): Promise<VacationModel[]> {
     // get only followed vacations from the followers table, sorted by number of followers, then by ABC
     // (i know i could have written another sql request using only followers field on vacations table)
@@ -76,6 +82,7 @@ async function getStats(): Promise<VacationModel[]> {
 export default {
     addFollower,
     removeFollower,
+    removeAllFollowersPerVacation,
     getStats
 };
     
