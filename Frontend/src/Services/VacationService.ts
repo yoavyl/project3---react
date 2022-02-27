@@ -48,7 +48,6 @@ class VacationService {
         // post method gets address + vacation to add
         const response = await axios.post<VacationModel>(config.urls.vacations, myFormdata);
         const addedVacation = response.data;
-
         // always added to all vacations (only)
         vacationsStore.dispatch(vacationAddedAction(addedVacation));
         return addedVacation;

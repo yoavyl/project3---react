@@ -79,11 +79,11 @@ export function vacationsReducer(currentState: VacationState = new VacationState
         case VacationActionType.deletedVacation: { // Here payload is the deleted vacation's id (number)
             const indexAllVacations = newState.allVacations.findIndex(v => v.id === action.payload);
             if (indexAllVacations >=0) {
-                delete newState.allVacations[indexAllVacations];
+                newState.allVacations.splice(indexAllVacations, 1);
             }
             const indexUserVacations = newState.userVacations.findIndex(v => v.id === action.payload);
             if (indexUserVacations >=0) {
-                delete newState.userVacations[indexUserVacations];
+                newState.userVacations.splice(indexUserVacations, 1);
             }
             break;
         }

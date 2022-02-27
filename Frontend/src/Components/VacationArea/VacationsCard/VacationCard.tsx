@@ -77,7 +77,8 @@ function VacationCard(props: VacationCardProps): JSX.Element {
 
 
     return (
-        <div key={props.vacation?.id} className="VacationCard">
+        // <div key={props.vacation?.id} className="VacationCard">
+        <div className="VacationCard">
              <p>
                 {!props.isAdmin && <>
                     {isUserFollowing && <button onClick={removeFollower} ><FcLike /></button>}

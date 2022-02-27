@@ -11,8 +11,8 @@ class DateService {
     }
 
     // creates minimum toDate (string for picker) which is one day after fromDate
-    public minToDateOneDateAfterFromDateStringTypeForPicker(fromDate: string): string {
-        const fromDateAsDateType = new Date(fromDate);
+    public minToDateOneDateAfterFromDateStringTypeForPicker(fromDate?: string): string {
+        const fromDateAsDateType = fromDate ? new Date(fromDate) : new Date();
         // add 1 day to fromDate, and turn the result back into string type for picker
         fromDateAsDateType.setDate(fromDateAsDateType.getDate() + 1);
         const minToDate = fromDateAsDateType.toISOString().split("T")[0];  

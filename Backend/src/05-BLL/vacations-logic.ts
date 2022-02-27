@@ -107,14 +107,13 @@ async function updateVacation(vacation: VacationModel): Promise<VacationModel> {
 }
 
 async function deleteVacation(id: number): Promise<void> {
-    
     // before delete, remove all followers of vacation from followers table (MUST, there are constrains in DB)
     await followersLogic.removeAllFollowersPerVacation(id);
     
     const dbVacation = await getOneVacation(id); // i need that for imageName
     const sql = "DELETE FROM Vacations WHERE id = " + id;
     const results: OkPacket = await dal.execute(sql); 
-    
+
     // delete the old image from DB
     safeDelete(config.imageFolder + dbVacation.imageName);
 

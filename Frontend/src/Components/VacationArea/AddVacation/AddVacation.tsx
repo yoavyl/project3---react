@@ -21,9 +21,8 @@ function AddVacation(): JSX.Element {
     const minFromDate = new Date().toISOString().split("T")[0];  // today
 
     useEffect( () => {
-        const tomorrow = new Date()
-        tomorrow.setDate(tomorrow.getDate() + 1)
-        setMinToDate(tomorrow.toISOString().split("T")[0]); // today + 1 (tomorrow)
+        const minToDate = dateService.minToDateOneDateAfterFromDateStringTypeForPicker();
+        setMinToDate(minToDate);  
     }, [] );
     
 
