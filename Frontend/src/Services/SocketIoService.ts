@@ -23,7 +23,7 @@ class SocketIoService {
         // connect to socket server
         this.socket = io(config.urls.socketServer);
 
-        // so that admin will update itself via sockets
+        // so that admin will not update itself via sockets
         if (this.user?.role === Roles.Admin) return
 
         // listen to add vacation by admin
@@ -41,7 +41,7 @@ class SocketIoService {
             vacationsStore.dispatch(vacationUpdatedAction(vacation));
         });
 
-        // listen to update vacation by admin
+        // listen to delete vacation by admin
         this.socket.on("admin-delete-vacation", async (id: number) => {
             // deletes in all vacations and / or user vacations
             // note to self: can't i just straight delete it? yes, since the admin deletes as well
