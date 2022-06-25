@@ -26,7 +26,7 @@ async function register(user: UserModel): Promise<string> {
     const usernameCount = await checkUsername(user.username);
     if(usernameCount.count > 0) throw new ClientError(403, "username is not avilable. choose another one"); // or 409?
 
-    // hash password befora saving in DB
+    // hash password before saving in DB
     user.password = crypto.hash(user.password);
 
     //set default role as user
