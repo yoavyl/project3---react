@@ -2,7 +2,7 @@ import axios from "axios";
 import config from "../Utils/config";
 import FollowerModel from '../Models/FollowerModel';
 
-class AuthService {
+class FollowerService {
 
     public async addFollower(follower: FollowerModel): Promise<FollowerModel> {
         const response = await axios.post<FollowerModel>(config.urls.addFollower, follower);
@@ -21,6 +21,6 @@ class AuthService {
 
 }
 
-const followerService = new AuthService();
+const followerService = new FollowerService();
 
 export default followerService;
